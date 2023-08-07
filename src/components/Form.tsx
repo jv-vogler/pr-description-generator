@@ -1,29 +1,43 @@
-import React from 'react'
+'use client'
 
-type Props = {}
+import useFormStore, { FormField } from '@/store/useFormStore'
+import Field from './Field'
 
-const Form = (props: Props) => {
+const Form = () => {
+  const formFields = useFormStore((state) => state.formFields)
+  const addFormField = useFormStore((state) => state.addFormField)
+  const updateFormField = useFormStore((state) => state.updateFormField)
+  const removeFormField = useFormStore((state) => state.removeFormField)
+
+  const handleFieldUpdate = (index: number, field: FormField) => {
+    updateFormField(index, field)
+  }
+
+  const handleFieldRemove = (index: number) => {
+    removeFormField(index)
+  }
+
+  const handleAddField = () => {
+    const newField = { title: '', content: '' }
+    addFormField(newField)
+  }
+
   return (
     <div>
       <h1 className="text-2xl font-bold">Form</h1>
       <form className="mt-4 flex flex-col gap-2">
-        <div className="flex flex-col">
-          <input className="bg-blue-200 p-2" placeholder="Title" />
-          <textarea
-            className="resize-y bg-red-200 p-2"
-            cols={35}
-            rows={5}
-          ></textarea>
-        </div>
-
-        <div className="flex flex-col">
-          <input className="bg-blue-200 p-2" placeholder="Title" />
-          <textarea
-            className="resize-y bg-red-200 p-2"
-            cols={35}
-            rows={5}
-          ></textarea>
-        </div>
+        {formFields.map((field, index) => (
+          <Field
+            key={index}
+            title={field.title}
+            content={field.content}
+            onUpdate={(updatedField) => handleFieldUpdate(index, updatedField)}
+            onRemove={() => handleFieldRemove(index)}
+          />
+        ))}
+        <button type="button" onClick={handleAddField}>
+          Add Field
+        </button>
       </form>
     </div>
   )

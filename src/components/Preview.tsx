@@ -1,24 +1,20 @@
+'use client'
+
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import useFormStore from '@/store/useFormStore'
+import generateMarkdownContent from '@/utils/generateMarkdown'
 import 'github-markdown-css'
 
-type Props = {}
+const Preview = () => {
+  const formFields = useFormStore((state) => state.formFields)
+  const markdown = generateMarkdownContent(formFields)
 
-const Preview = (props: Props) => {
-  const md = `
-
-  # Teste
-  SALDASkfpsdofkasd
-
-  # Another heading?
-  another content
-  https://github.com/remarkjs/remark-gfm#example-singletilde
-  `
   return (
     <div>
       <h1 className="text-2xl font-bold">Preview</h1>
-      <div className="markdown-body max-w-2xl p-8">
-        <ReactMarkdown remarkPlugins={[[remarkGfm]]}>{md}</ReactMarkdown>
+      <div className="markdown-body max-w-3xl px-16 py-8">
+        <ReactMarkdown remarkPlugins={[[remarkGfm]]}>{markdown}</ReactMarkdown>
       </div>
     </div>
   )
