@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
 export type FormField = {
   title: string
@@ -13,6 +14,7 @@ type FormActions = {
   addFormField: (field: FormField) => void
   updateFormField: (index: number, field: FormField) => void
   removeFormField: (index: number) => void
+  resetForm: () => void
 }
 
 type FormStore = FormState & FormActions
@@ -27,20 +29,26 @@ const defaultFields: FormField[] = [
   },
 ]
 
-const useFormStore = create<FormStore>((set) => ({
-  formFields: defaultFields,
-  addFormField: (field) =>
-    set((state) => ({ formFields: [...state.formFields, field] })),
-  updateFormField: (index, field) =>
-    set((state) => {
-      const updatedFields = [...state.formFields]
-      updatedFields[index] = field
-      return { formFields: updatedFields }
+const useFormStore = create<FormStore>()(
+  persist(
+    (set) => ({
+      formFields: defaultFields,
+      addFormField: (field) =>
+        set((state) => ({ formFields: [...state.formFields, field] })),
+      updateFormField: (index, field) =>
+        set((state) => {
+          const updatedFields = [...state.formFields]
+          updatedFields[index] = field
+          return { formFields: updatedFields }
+        }),
+      removeFormField: (index) =>
+        set((state) => ({
+          formFields: state.formFields.filter((_, i) => i !== index),
+        })),
+      resetForm: () => set(() => ({ formFields: defaultFields })),
     }),
-  removeFormField: (index) =>
-    set((state) => ({
-      formFields: state.formFields.filter((_, i) => i !== index),
-    })),
-}))
+    { name: 'formStorage' }
+  )
+)
 
 export default useFormStore
