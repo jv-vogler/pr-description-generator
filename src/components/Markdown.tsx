@@ -7,13 +7,12 @@ const Markdown = () => {
   const formFields = useFormStore((state) => state.formFields)
   const markdown = generateMarkdownContent(formFields)
 
-  const handleCopyToClipboard = () => {
-    const el = document.createElement('textarea')
-    el.value = markdown
-    document.body.appendChild(el)
-    el.select()
-    document.execCommand('copy')
-    document.body.removeChild(el)
+  const handleCopyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(markdown)
+    } catch (error) {
+      console.error('Error copying markdown to clipboard: ', error)
+    }
   }
 
   return (
