@@ -20,23 +20,29 @@ const Field: React.FC<FieldProps> = ({
   }
 
   return (
-    <div className="flex flex-col">
-      <input
-        className="bg-blue-200 p-2"
-        placeholder="Title"
-        value={title}
-        onChange={handleTitleChange}
-      />
-      <textarea
-        className="resize-y bg-red-200 p-2"
-        cols={35}
-        rows={5}
-        value={content}
-        onChange={handleContentChange}
-      ></textarea>
-      <button type="button" onClick={onRemove}>
-        Remove Field
+    <div>
+      <button
+        className="rounded-t-md bg-red-500 px-3 py-1 font-bold text-white hover:bg-red-600"
+        type="button"
+        onClick={onRemove}
+      >
+        X
       </button>
+      <div className="flex flex-col">
+        <input
+          className="bg-blue-200 p-2"
+          placeholder="Title"
+          value={title}
+          onChange={handleTitleChange}
+        />
+        <textarea
+          className="resize-y bg-red-200 p-2"
+          cols={35}
+          rows={5}
+          value={content}
+          onChange={handleContentChange}
+        ></textarea>
+      </div>
     </div>
   )
 }
