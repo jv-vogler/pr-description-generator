@@ -26,7 +26,6 @@ npm run dev
 # Todo
 - Improve layout and styling
 - Fix preview (mostly accurate but not perfect)
-- Make use of local storage to persist form fields
 
 Feel free to reach out if you have any ideas or suggestions!
 
