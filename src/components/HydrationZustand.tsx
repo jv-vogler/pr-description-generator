@@ -9,5 +9,5 @@ export const HydrationZustand = ({ children }: { children: ReactNode }) => {
     setIsHydrated(true)
   }, [])
 
-  return <>{isHydrated ? <>{children}</> : null}</>
+  return <>{isHydrated && <>{children}</>}</>
 }

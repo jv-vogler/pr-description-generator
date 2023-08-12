@@ -11,11 +11,14 @@ const Preview = () => {
   const markdown = generateMarkdownContent(formFields)
 
   return (
-    <div>
+    <div className='flex-1'>
       <h1 className="text-2xl font-bold">Preview</h1>
-      <div className="markdown-body max-w-3xl px-16 py-8">
-        <ReactMarkdown remarkPlugins={[[remarkGfm]]}>{markdown}</ReactMarkdown>
-      </div>
+      <ReactMarkdown
+        remarkPlugins={[[remarkGfm]]}
+        className="markdown-body p-[15px] md:p-[45px]"
+      >
+        {markdown}
+      </ReactMarkdown>
     </div>
   )
 }

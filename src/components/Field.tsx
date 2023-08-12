@@ -20,9 +20,9 @@ const Field: React.FC<FieldProps> = ({
   }
 
   return (
-    <div>
+    <div className="relative flex flex-col">
       <button
-        className="rounded-t-md bg-red-500 px-3 py-1 font-bold text-white hover:bg-red-600"
+        className="absolute -right-1 -top-1 h-6 w-6 self-end rounded-full bg-red-500 font-bold text-white transition-colors duration-200 hover:bg-red-600 active:bg-red-700"
         type="button"
         onClick={onRemove}
       >
@@ -30,13 +30,13 @@ const Field: React.FC<FieldProps> = ({
       </button>
       <div className="flex flex-col">
         <input
-          className="bg-blue-200 p-2"
+          className="bg-slate-800 p-2 font-bold text-white transition-colors duration-200 placeholder:text-zinc-400 focus:bg-teal-700"
           placeholder="Title"
           value={title}
           onChange={handleTitleChange}
         />
         <textarea
-          className="resize-y bg-red-200 p-2"
+          className="resize-y border-r-0 bg-slate-700 p-2 text-white transition-colors duration-200 focus:bg-teal-700"
           cols={35}
           rows={5}
           value={content}

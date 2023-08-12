@@ -21,15 +21,15 @@ const Markdown = () => {
       {markdown.trim() !== '' ? (
         <div className="flex flex-col gap-2">
           <button
-            className="max-w-sm bg-slate-400 p-2"
+            className="max-w-fit rounded-lg bg-slate-700 px-4 py-2 font-bold text-white transition-colors duration-200 hover:bg-teal-700 active:bg-teal-800"
             onClick={handleCopyToClipboard}
           >
             Copy to Clipboard
           </button>
 
           <textarea
-            className="resize-y bg-slate-100 p-4"
-            rows={30}
+            className="resize-y rounded mt-2 bg-slate-700 p-4 text-slate-200"
+            rows={20}
             cols={50}
             spellCheck={false}
             value={markdown}

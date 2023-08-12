@@ -27,7 +27,7 @@ const Form = () => {
     <div>
       <h1 className="text-2xl font-bold">Form</h1>
       <button
-        className="rounded-lg bg-slate-500 px-4 py-2 font-bold text-white"
+        className="rounded-lg bg-slate-700 px-4 py-2 font-bold text-white transition-colors duration-200 hover:bg-teal-700 active:bg-teal-800"
         onClick={resetForm}
       >
         Reset Form
@@ -42,7 +42,7 @@ const Form = () => {
             onRemove={() => handleFieldRemove(index)}
           />
         ))}
-        <button type="button" onClick={handleAddField}>
+        <button type="button" onClick={handleAddField} className="rounded-lg bg-slate-700 px-4 py-2 font-bold text-white transition-colors duration-200 hover:bg-teal-700 active:bg-teal-800">
           Add Field
         </button>
       </form>

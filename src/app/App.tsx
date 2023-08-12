@@ -5,17 +5,13 @@ import { HydrationZustand } from '@/components/HydrationZustand'
 
 const App = () => {
   return (
-    <main className="flex justify-evenly">
-      <HydrationZustand>
+    <HydrationZustand>
+      <main className="flex flex-col gap-10 p-10 xl:flex-row">
         <Form />
-      </HydrationZustand>
-      <HydrationZustand>
         <Markdown />
-      </HydrationZustand>
-      <HydrationZustand>
         <Preview />
-      </HydrationZustand>
-    </main>
+      </main>
+    </HydrationZustand>
   )
 }
 
