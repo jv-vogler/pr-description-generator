@@ -31,7 +31,6 @@ const Field: React.FC<FieldProps> = ({
       <div className="flex flex-col">
         <input
           className="bg-slate-800 p-2 font-bold text-white transition-colors duration-200 placeholder:text-zinc-400 focus:bg-teal-700"
-          placeholder="Title"
           value={title}
           onChange={handleTitleChange}
         />

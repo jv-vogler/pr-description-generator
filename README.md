@@ -23,10 +23,7 @@ running locally:
 ```bash
 npm run dev
 ```
-# Todo
-- Improve layout and styling
-- Fix preview (mostly accurate but not perfect)
-
+# Improvements
 Feel free to reach out if you have any ideas or suggestions!
 
 # License

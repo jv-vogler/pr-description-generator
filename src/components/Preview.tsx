@@ -11,8 +11,8 @@ const Preview = () => {
   const markdown = generateMarkdownContent(formFields)
 
   return (
-    <div className='flex-1'>
-      <h1 className="text-2xl font-bold">Preview</h1>
+    <div className="max-w-[900px] flex-1">
+      <h1 className="mb-12 text-2xl font-bold">Preview</h1>
       <ReactMarkdown
         remarkPlugins={[[remarkGfm]]}
         className="markdown-body p-[15px] md:p-[45px]"

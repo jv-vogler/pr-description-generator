@@ -2,6 +2,8 @@
 
 import useFormStore from '@/store/useFormStore'
 import generateMarkdownContent from '@/utils/generateMarkdown'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 const Markdown = () => {
   const formFields = useFormStore((state) => state.formFields)
@@ -19,7 +21,7 @@ const Markdown = () => {
     <div>
       <h1 className="text-2xl font-bold">Markdown</h1>
       {markdown.trim() !== '' ? (
-        <div className="flex flex-col gap-2">
+        <div className="flex max-h-[780px] max-w-3xl flex-col gap-2 lg:max-w-2xl">
           <button
             className="max-w-fit rounded-lg bg-slate-700 px-4 py-2 font-bold text-white transition-colors duration-200 hover:bg-teal-700 active:bg-teal-800"
             onClick={handleCopyToClipboard}
@@ -27,14 +29,16 @@ const Markdown = () => {
             Copy to Clipboard
           </button>
 
-          <textarea
-            className="resize-y rounded mt-2 bg-slate-700 p-4 text-slate-200"
-            rows={20}
-            cols={50}
-            spellCheck={false}
-            value={markdown}
-            readOnly
-          ></textarea>
+          <SyntaxHighlighter
+            language="markdown"
+            style={dracula}
+            showLineNumbers
+            lineNumberStyle={{ color: '#6272a4' }}
+            // wrapLongLines
+            wrapLines
+          >
+            {markdown}
+          </SyntaxHighlighter>
         </div>
       ) : (
         <p>No content to display.</p>
