@@ -24,6 +24,8 @@ running locally:
 npm run dev
 ```
 # Improvements
+- Implement the Command pattern to be able to undo/redo actions
+
 Feel free to reach out if you have any ideas or suggestions!
 
 # License
