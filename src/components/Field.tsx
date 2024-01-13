@@ -20,9 +20,9 @@ const Field: React.FC<FieldProps> = ({
   }
 
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-col border-2 border-black dark:border-zinc-100">
       <button
-        className="absolute -right-1 -top-1 h-6 w-6 self-end rounded-full bg-red-500 font-bold text-white transition-colors duration-200 hover:bg-red-600 active:bg-red-700"
+        className="absolute -right-2 -top-2 h-6 w-6 self-end rounded-full bg-red-500 font-bold text-white transition-colors duration-200 hover:bg-red-600 active:bg-red-700"
         type="button"
         onClick={onRemove}
       >

@@ -7,8 +7,8 @@ import { Footer } from '@/components/Footer'
 const App = () => {
   return (
     <HydrationZustand>
-      <div className="flex h-screen flex-col">
-        <main className="mb-auto flex flex-col gap-10 p-10 xl:flex-row">
+      <div className="dark flex h-screen flex-col">
+        <main className="flex flex-1 flex-col gap-10 p-10 dark:bg-zinc-950 dark:text-white xl:flex-row">
           <Form />
           <Markdown />
           <Preview />

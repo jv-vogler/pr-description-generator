@@ -32,7 +32,7 @@ const Form = () => {
       >
         Reset Form
       </button>
-      <form className="mt-4 flex flex-col gap-2">
+      <form className="mt-4 flex flex-col gap-3">
         {formFields.map((field, index) => (
           <Field
             key={index}

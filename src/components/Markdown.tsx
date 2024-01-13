@@ -29,16 +29,17 @@ const Markdown = () => {
             Copy to Clipboard
           </button>
 
-          <SyntaxHighlighter
-            language="markdown"
-            style={dracula}
-            showLineNumbers
-            lineNumberStyle={{ color: '#6272a4' }}
-            // wrapLongLines
-            wrapLines
-          >
-            {markdown}
-          </SyntaxHighlighter>
+          <div className="border-2 border-black dark:border-zinc-100">
+            <SyntaxHighlighter
+              language="markdown"
+              style={dracula}
+              showLineNumbers
+              lineNumberStyle={{ color: '#6272a4' }}
+              wrapLines
+            >
+              {markdown}
+            </SyntaxHighlighter>
+          </div>
         </div>
       ) : (
         <p>No content to display.</p>

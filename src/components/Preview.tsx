@@ -15,7 +15,7 @@ const Preview = () => {
       <h1 className="mb-12 text-2xl font-bold">Preview</h1>
       <ReactMarkdown
         remarkPlugins={[[remarkGfm]]}
-        className="markdown-body p-[15px] md:p-[45px]"
+        className="markdown-body border-2 border-black p-[15px] dark:border-zinc-100 md:p-[45px]"
       >
         {markdown}
       </ReactMarkdown>
