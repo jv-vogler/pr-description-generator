@@ -20,8 +20,7 @@ type FormActions = {
 type FormStore = FormState & FormActions
 
 const defaultFields: FormField[] = [
-  { title: 'Notes', content: '' },
-  { title: 'Gist & Notion links', content: '' },
+  { title: 'Gist', content: '' },
   { title: 'Task description', content: '' },
   {
     title: 'Example',
